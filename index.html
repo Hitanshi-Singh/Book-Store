@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twinky's Book Store</title>
+    <style>
+        * {
+            /* box-sizing: border-box; */
+        }
+        
+        h2 {
+
+            margin: 15px auto;
+            width: 220px;
+            padding: 4px;
+            border: 2px solid black;
+            border-radius: 4px;
+        }
+
+        img {
+            border: 12px rgb(221, 98, 139);
+            border-style: ridge;
+            padding: 2px 2px;
+            box-sizing: border-box;
+            width: 158px;
+        }
+
+        body {
+            /* margin: 0px; */
+            /* padding: 0px; */
+            background: url('pictures/bg.jpg');
+            height: 750px;
+            background-size: 1520px 1096px;
+
+        }
+
+        body::before {
+            /* content: "";
+position: absolute;
+height: 108%;
+width: 100%;
+z-index: -1;
+/* opacity: 0.95; */
+            box-sizing: border-box;
+            */
+        }
+
+        .mid::before {
+            content: "";
+            background-color: black;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.2;
+        }
+
+        .mid {
+            display: inline-block;
+            color: white;
+            border: 2px solid pink;
+            width: 100px;
+            margin: 20px auto;
+            position: absolute;
+            top: 0%;
+            left: 20%;
+            width: 50em;
+        }
+
+        .mid li {
+            display: inline-block;
+            list-style: none;
+            box-sizing: border-box;
+
+
+        }
+
+        .mid li a {
+            text-decoration: none;
+            margin: 0px 20px;
+            padding: 6px 20px;
+            color: white;
+        }
+
+        .mid li a:hover {
+            cursor: pointer;
+            color: black;
+            background-color: white;
+            border: none;
+            border-radius: 20px;
+            box-sizing: border-box;
+        }
+
+        .genre {
+            display: inline-block;
+            margin: 10px 5px;
+            padding: 0px 1px;
+            border: 3px solid white;
+            /* border: 4px solid white; */
+            border-radius: 0px;
+            width: 510px;
+            color: white;
+            height: 530px;
+
+        }
+
+        .book {
+            border: 2px solid white;
+            padding: 42px;
+            float: left;
+            width: 49%;
+            margin: 2px;
+            height: 28%;
+            text-align: center;
+            box-sizing: border-box;
+
+
+        }
+
+        .book:hover {
+            /* opacity: 0.9; */
+        }
+
+        #scifi::before {
+            background-image: url('pictures/scifi.jpg');
+            content: "";
+            position: absolute;
+            top: 257.1px;
+            left: 21.5px;
+            height: 145px;
+            width: 246.1px;
+            opacity: 0.5;
+            z-index: -1;
+
+        }
+
+        #thriller::before {
+            background-image: url('pictures/thriller.jpg');
+            content: "";
+            position: absolute;
+            top: 257.1px;
+            left: 275.5px;
+            height: 145px;
+            width: 246.1px;
+            opacity: 0.5;
+            z-index: -1;
+
+
+        }
+
+        #fantasy::before {
+            background-image: url('pictures/fant.jpg');
+            content: "";
+            position: absolute;
+            top: 409.7px;
+            left: 21.5px;
+            height: 145px;
+            width: 246.1px;
+
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        #romance::before {
+            background-image: url('pictures/romance.jpg');
+
+            content: "";
+            position: absolute;
+            top: 409.5px;
+            left: 275.5px;
+            height: 145px;
+            width: 246.1px;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        #growth::before {
+            background-image: url('pictures/selfhelp.jpg');
+            content: "";
+            position: absolute;
+            top: 562px;
+            left: 21.5px;
+            height: 145px;
+            width: 246.1px;
+            opacity: 0.5;
+            z-index: -1;
+
+        }
+
+        #horror::before {
+            background-image: url('pictures/horror.jpg');
+
+            content: "";
+            position: absolute;
+            top: 562px;
+            left: 275.5px;
+            height: 145px;
+            width: 246.1px;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        button {
+            border: 1px solid white;
+            border-radius: 14px;
+            line-height: 34px;
+            background-color: rgba(71, 71, 71, 0.922);
+            color: white;
+            font-weight: bold;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background: rgba(3, 21, 86, 0.674);
+            color: cornsilk;
+            border: 2px solid white;
+        }
+
+        form {
+            color: black;
+            float: right;
+            border: none;
+            background: none;
+
+        }
+
+        .input {
+
+            color: white;
+            float: right;
+            border: none;
+            position: absolute;
+            right: 33px;
+            top: 33px;
+        }
+
+        .form {
+            border: none;
+            height: 28px;
+            font-size: 17px;
+            padding-left: 15px;
+
+        }
+
+        #meme {
+            border: 1px solid white;
+            border-radius: 14px;
+            height: 30px;
+            padding: 3px 15px;
+            font-weight: bold;
+        }
+
+        #searchMe {
+            border-radius: 14px;
+        }
+
+        .form:hover {
+            cursor: pointer;
+        }
+
+        .signUp {
+            /* text-align: center; */
+            color: azure;
+            border: 2px solid white;
+            width: 308px;
+            height: 472px;
+            float: right;
+            margin: 30px 100px;
+            padding: 30px;
+        }
+
+        .mainbox {
+            margin: 5px;
+            width: 285px;
+            height: 35px;
+            border-radius: 5px;
+        }
+
+        label {
+            margin: 5px;
+            font-family: cursive;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .sub {
+            width: 173px;
+            height: 57px;
+            border: none;
+            border-radius: 10px;
+            margin: 16px 65px;
+            display: inline-block;
+            font-size: large;
+            background-color: rgb(236, 97, 32);
+            color: white;
+            font-weight: bold;
+        }
+
+        .sub:hover {
+            cursor: pointer;
+            background-color: rgb(245, 116, 23);
+        }
+
+        .login {
+            margin: 2px 24px;
+
+        }
+
+        .login a {
+            text-decoration: none;
+            color: cornflowerblue;
+        }
+
+        .login a:hover,
+        a:active {
+            color: rgb(19, 76, 141);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="pictures/logo.png" alt="logo">
+    </div>
+    <div class="mid">
+        <nav>
+            <ul>
+                <li><a href="">HOME</a></li>
+                <li><a href="">ABOUT</a></li>
+                <li><a href="">CART</a></li>
+                <li><a href="">WISHLIST</a></li>
+                <li><a href="">ACCOUNT</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="genre">
+        <h2>Browse by GENRES</h2>
+        <div class="book" id="scifi">
+            <button>
+
+                Science-Fiction
+            </button>
+        </div>
+        <div class="book" id="thriller">
+            <button>
+                Thriller
+            </button>
+        </div>
+        <div class="book" id="fantasy">
+            <button>
+                Fantasy
+            </button>
+        </div>
+        <div class="book" id="romance">
+            <button>
+
+                Young Romance
+            </button>
+        </div>
+        <div class="book" id="growth">
+            <button> Self Growth</button>
+        </div>
+        <div class="book" id="horror">
+            <button>
+                Horror
+            </button>
+        </div>
+    </div>
+    <div class="input">
+        <!-- <form action="" >search</form> -->
+        <!-- <input type="text" name="search" placeholder="search here"> -->
+        <input class="form" type="search" name="Search" id="searchMe" placeholder="search here">
+        <input class="form" type="button" value="search" id="meme">
+    </div>
+    <div class="signUp">
+        <h1>SIGN UP TODAY! for Amazing deals and offers</h1>
+        <form action="">
+            <label for="fname">Full name</label> <br>
+            <input type="text" name="fname" id="fname" class="mainbox" placeholder="Type your name here"> <br>
+            <label for="ename">Email</label> <br>
+            <input type="email" name="ename" id="ename" class="mainbox" placeholder="Type your email here"> <br>
+            <label for="psswrd">Password</label> <br>
+            <input type="password" name="psswrd" id="psswrd" class="mainbox" placeholder="Type your password here">
+            <input type="submit" value="Sign Up" class="mainbox sub">
+        </form>
+        <div class="login">
+            <span>Already have an Account?</span> <span> <a href="">login here</a> </span>
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>
